@@ -1,0 +1,199 @@
+{
+  "Name": "AreaRate",
+  "BaseUnit": "SquareMeterPerSecond",
+  "XmlDoc": "The SI unit is m²/s (square meters per second). In US Customary Units and British Imperial Units, area rate is often expressed as ft²/s (square feet per second).",
+  "BaseDimensions": {
+    "L": 2,
+    "T": -1
+  },
+  "Units": [
+    {
+      "SingularName": "SquareMeterPerSecond",
+      "PluralName": "SquareMetersPerSecond",
+      "FromUnitToBaseFunc": "x",
+      "FromBaseToUnitFunc": "x",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "m²/s" ]
+        },
+        {
+          "Culture": "ru-RU",
+          "Abbreviations": [ "м²/с" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "SquareMeterPerMinute",
+      "PluralName": "SquareMetersPerMinute",
+      "FromUnitToBaseFunc": "x/60",
+      "FromBaseToUnitFunc": "x*60",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "m²/min" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "SquareMeterPerHour",
+      "PluralName": "SquareMetersPerHour",
+      "FromUnitToBaseFunc": "x/3600",
+      "FromBaseToUnitFunc": "x*3600",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "m²/h" ]
+        },
+        {
+          "Culture": "ru-RU",
+          "Abbreviations": [ "м²/ч" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "SquareMeterPerDay",
+      "PluralName": "SquareMetersPerDay",
+      "FromUnitToBaseFunc": "x/86400",
+      "FromBaseToUnitFunc": "x*86400",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "m²/d" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "SquareFootPerSecond",
+      "PluralName": "SquareFeetPerSecond",
+      "FromUnitToBaseFunc": "x/10.763910417",
+      "FromBaseToUnitFunc": "x*10.763910417",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "ft²/s" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "SquareFootPerMinute",
+      "PluralName": "SquareFeetPerMinute",
+      "FromUnitToBaseFunc": "x/645.834625003",
+      "FromBaseToUnitFunc": "x*645.834625003",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "ft²/min" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "SquareFootPerHour",
+      "PluralName": "SquareFeetPerHour",
+      "FromUnitToBaseFunc": "x*3.87500775002e-4",
+      "FromBaseToUnitFunc": "x/3.87500775002e-4",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "ft²/h", "sf/hr" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "SquareYardPerSecond",
+      "PluralName": "SquareYardsPerSecond",
+      "FromUnitToBaseFunc": "x*0.83612736",
+      "FromBaseToUnitFunc": "x/0.83612736",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "yd²/s" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "SquareYardPerMinute",
+      "PluralName": "SquareYardsPerMinute",
+      "FromUnitToBaseFunc": "x*0.013935456",
+      "FromBaseToUnitFunc": "x/0.013935456",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "yd²/min" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "SquareYardPerHour",
+      "PluralName": "SquareYardsPerHour",
+      "FromUnitToBaseFunc": "x*2.322576E-4",
+      "FromBaseToUnitFunc": "x/2.322576E-4",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "yd²/h" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "SquareYardPerDay",
+      "PluralName": "SquareYardsPerDay",
+      "FromUnitToBaseFunc": "x/103333.54",
+      "FromBaseToUnitFunc": "x*103333.54",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "sy/day" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "AcrePerSecond",
+      "PluralName": "AcresPerSecond",
+      "FromUnitToBaseFunc": "x*4046.8564224",
+      "FromBaseToUnitFunc": "x/4046.8564224",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "a/s" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "AcrePerMinute",
+      "PluralName": "AcresPerMinute",
+      "FromUnitToBaseFunc": "x*67.44760704",
+      "FromBaseToUnitFunc": "x/67.44760704",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "a/m" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "AcrePerHour",
+      "PluralName": "AcresPerHour",
+      "FromUnitToBaseFunc": "x*1.124126784",
+      "FromBaseToUnitFunc": "x/1.124126784",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "a/h" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "AcrePerDay",
+      "PluralName": "AcresPerDay",
+      "FromUnitToBaseFunc": "x/21.3499049588",
+      "FromBaseToUnitFunc": "x*21.3499049588",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "a/d" ]
+        }
+      ]
+    }
+  ]
+}
