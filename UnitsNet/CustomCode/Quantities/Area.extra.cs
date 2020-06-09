@@ -50,6 +50,10 @@ namespace UnitsNet
         public static AreaRate operator *(Length length, Speed speed)
         {
             return AreaRate.FromSquareMetersPerSecond(length.Meters * speed.MetersPerSecond);
+        /// <summary>Get <see cref="LinearDensity"/> from <see cref="Area"/> times <see cref="Density"/>.</summary>
+        public static LinearDensity operator *(Area area, Density density)
+        {
+            return LinearDensity.FromKilogramsPerMeter(area.SquareMeters * density.KilogramsPerCubicMeter);
         }
     }
 }

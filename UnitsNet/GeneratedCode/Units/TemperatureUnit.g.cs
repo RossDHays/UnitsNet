@@ -34,6 +34,8 @@ namespace UnitsNet.Units
         DegreeReaumur,
         DegreeRoemer,
         Kelvin,
+        MillidegreeCelsius,
+        SolarTemperature,
     }
 
     #pragma warning restore 1591

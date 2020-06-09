@@ -57,6 +57,12 @@ namespace UnitsNet.Tests.CustomCode
 
         protected override double ShortHundredweightInOneKilogram => 0.022046226218487758;
 
+        protected override double EarthMassesInOneKilogram => 1.6744248350691500000000000E-25;
+
+        protected override double SolarMassesInOneKilogram => 5.0264643347223100000000000E-31;
+
+        //protected override double SolarMassesTolerance => 0.1;
+
         [Fact]
         public void AccelerationTimesMassEqualsForce()
         {
@@ -106,6 +112,23 @@ namespace UnitsNet.Tests.CustomCode
 
             Assert.Equal(-1.0, stonePounds.Stone);
             Assert.Equal(-11.0, stonePounds.Pounds);
+        }
+
+        [Theory]
+        [InlineData(10, MassUnit.Gram,
+                    KnownQuantities.MolarMassOfOxygen, MolarMassUnit.GramPerMole,
+                    0.625023438378939, AmountOfSubstanceUnit.Mole)]     // 10 grams Of Oxygen contain 0.625023438378939 Moles
+        public void AmountOfSubstanceFromMassAndMolarMass(
+            double massValue, MassUnit massUnit,
+            double molarMassValue, MolarMassUnit molarMassUnit,
+            double expectedAmountOfSubstanceValue, AmountOfSubstanceUnit expectedAmountOfSubstanceUnit, double tolerence = 1e-5)
+        {
+            var mass = new Mass(massValue, massUnit);
+            var molarMass = new MolarMass(molarMassValue, molarMassUnit);
+
+            AmountOfSubstance amountOfSubstance = mass / molarMass;
+
+            AssertEx.EqualTolerance(expectedAmountOfSubstanceValue, amountOfSubstance.As(expectedAmountOfSubstanceUnit), tolerence);
         }
     }
 }

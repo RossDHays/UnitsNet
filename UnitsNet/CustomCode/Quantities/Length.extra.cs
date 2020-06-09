@@ -47,7 +47,7 @@ namespace UnitsNet
         /// <param name="str"></param>
         /// <param name="formatProvider">Optionally specify the culture format numbers and localize unit abbreviations. Defaults to thread's culture.</param>
         /// <returns>Parsed length.</returns>
-        public static Length ParseFeetInches([NotNull] string str, IFormatProvider formatProvider = null)
+        public static Length ParseFeetInches([NotNull] string str, IFormatProvider? formatProvider = null)
         {
             if (str == null) throw new ArgumentNullException(nameof(str));
             if (!TryParseFeetInches(str, out Length result, formatProvider))
@@ -69,7 +69,7 @@ namespace UnitsNet
         /// <param name="str"></param>
         /// <param name="result">Parsed length.</param>
         /// <param name="formatProvider">Optionally specify the culture format numbers and localize unit abbreviations. Defaults to thread's culture.</param>
-        public static bool TryParseFeetInches([CanBeNull] string str, out Length result, IFormatProvider formatProvider = null)
+        public static bool TryParseFeetInches(string? str, out Length result, IFormatProvider? formatProvider = null)
         {
             if (str == null)
             {
@@ -88,17 +88,24 @@ namespace UnitsNet
             string inchRegex = quantityParser.CreateRegexPatternForUnit(LengthUnit.Inch, formatProvider, matchEntireString: false);
 
             // Match entire string exactly
-            string pattern = $@"^(?<feet>{footRegex})\s?(?<inches>{inchRegex})$";
+            string pattern = $@"^(?<negativeSign>\-?)(?<feet>{footRegex})\s?(?<inches>{inchRegex})$";
 
             var match = new Regex(pattern, RegexOptions.Singleline).Match(str);
-            if (!match.Success) return false;
+            if (!match.Success)
+                return false;
 
+            var negativeSignGroup = match.Groups["negativeSign"];
             var feetGroup = match.Groups["feet"];
             var inchesGroup = match.Groups["inches"];
+
             if (TryParse(feetGroup.Value, formatProvider, out Length feet) &&
                 TryParse(inchesGroup.Value, formatProvider, out Length inches))
             {
                 result = feet + inches;
+
+                if(negativeSignGroup.Length > 0)
+                    result = -result;
+
                 return true;
             }
 
@@ -206,7 +213,7 @@ namespace UnitsNet
         ///     Optional culture to format number and localize unit abbreviations.
         ///     If null, defaults to <see cref="Thread.CurrentUICulture"/>.
         /// </param>
-        public string ToString([CanBeNull] IFormatProvider cultureInfo)
+        public string ToString(IFormatProvider? cultureInfo)
         {
             cultureInfo = cultureInfo ?? CultureInfo.CurrentUICulture;
 

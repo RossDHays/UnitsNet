@@ -1,4 +1,4 @@
-﻿{
+{
   "Name": "RotationalAcceleration",
   "BaseUnit": "RadianPerSecondSquared",
   "XmlDoc": "Angular acceleration is the rate of change of rotational speed.",
@@ -39,6 +39,18 @@
         {
           "Culture": "en-US",
           "Abbreviations": [ "rpm/s" ]
+        }
+      ]
+    },
+    {
+      "SingularName": "RevolutionPerSecondSquared",
+      "PluralName": "RevolutionsPerSecondSquared",
+      "FromUnitToBaseFunc": "(2*Math.PI)*x",
+      "FromBaseToUnitFunc": "(1/(2*Math.PI))*x",
+      "Localization": [
+        {
+          "Culture": "en-US",
+          "Abbreviations": [ "r/s²" ]
         }
       ]
     }

@@ -35,6 +35,8 @@ namespace UnitsNet.Tests.CustomCode
 
         protected override double UsSurveySquareFeetInOneSquareMeter => 10.76386736111121;
 
+        protected override double SquareNauticalMilesInOneSquareMeter => 0.00000029155335;
+
         [Fact]
         public void AreaDividedByLengthEqualsLength()
         {
@@ -47,6 +49,13 @@ namespace UnitsNet.Tests.CustomCode
         {
             MassFlow massFlow = Area.FromSquareMeters(20) * MassFlux.FromKilogramsPerSecondPerSquareMeter(2);
             Assert.Equal(massFlow, MassFlow.FromKilogramsPerSecond(40));
+        }
+
+        [Fact]
+        public void AreaTimesDensityEqualsLinearDensity()
+        {
+            LinearDensity linearDensity = Area.FromSquareCentimeters(2) * Density.FromGramsPerCubicCentimeter(10);
+            Assert.Equal(LinearDensity.FromGramsPerCentimeter(20), linearDensity);
         }
 
         [Theory]
@@ -89,6 +98,24 @@ namespace UnitsNet.Tests.CustomCode
         {
             var area = new Area(1.0, UnitSystem.SI);
             Assert.Equal(AreaUnit.SquareMeter, area.Unit);
+        }
+
+        [Fact]
+        public void As_GivenSIUnitSystem_ReturnsSIValue()
+        {
+            var squareInches = new Area(2.0, AreaUnit.SquareInch);
+            Assert.Equal(0.00129032, squareInches.As(UnitSystem.SI));
+        }
+
+        [Fact]
+        public void ToUnit_GivenSIUnitSystem_ReturnsSIQuantity()
+        {
+            var squareInches = new Area(2.0, AreaUnit.SquareInch);
+
+            var inSI = squareInches.ToUnit(UnitSystem.SI);
+
+            Assert.Equal(0.00129032, inSI.Value);
+            Assert.Equal(AreaUnit.SquareMeter, inSI.Unit);
         }
     }
 }

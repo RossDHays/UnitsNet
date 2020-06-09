@@ -71,6 +71,12 @@ namespace UnitsNet
             return Volume.FromCubicMeters(mass.Kilograms / density.KilogramsPerCubicMeter);
         }
 
+        /// <summary>Get <see cref="AmountOfSubstance" /> from <see cref="MolarMass" /> divided by <see cref="Mass" />.</summary>
+        public static AmountOfSubstance operator /(Mass mass, MolarMass molarMass)
+        {
+            return AmountOfSubstance.FromMoles(mass.Kilograms / molarMass.KilogramsPerMole);
+        }
+
         /// <summary>Get <see cref="Force"/> from <see cref="Mass"/> times <see cref="Acceleration"/>.</summary>
         public static Force operator *(Mass mass, Acceleration acceleration)
         {
@@ -123,7 +129,7 @@ namespace UnitsNet
         ///     Optional culture to format number and localize unit abbreviations.
         ///     If null, defaults to <see cref="Thread.CurrentUICulture"/>.
         /// </param>
-        public string ToString([CanBeNull] IFormatProvider cultureInfo)
+        public string ToString(IFormatProvider? cultureInfo)
         {
             cultureInfo = cultureInfo ?? CultureInfo.CurrentUICulture;
 

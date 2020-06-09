@@ -21,6 +21,8 @@ namespace UnitsNet.Tests.CustomCode
 
         protected override double FeetInOneMeter => 3.28084;
 
+        protected override double HectometersInOneMeter => 1E-2;
+
         protected override double TwipsInOneMeter => 56692.913386;
         protected override double UsSurveyFeetInOneMeter => 3.280833333333333;
 
@@ -53,7 +55,27 @@ namespace UnitsNet.Tests.CustomCode
 
         protected override double NauticalMilesInOneMeter => 1.0/1852.0;
 
-        [Fact]
+        protected override double HandsInOneMeter => 9.8425196850393701;
+
+        protected override double AstronomicalUnitsInOneMeter => 6.6845871222684500000000000E-12;
+
+        protected override double KilolightYearsInOneMeter => 1.0570008340247000000000000E-19;
+
+        protected override double KiloparsecsInOneMeter => 3.2407790389471100000000000E-20;
+
+        protected override double LightYearsInOneMeter => 1.0570008340247000000000000E-16;
+
+        protected override double MegalightYearsInOneMeter => 1.0570008340247000000000000E-22;
+
+        protected override double MegaparsecsInOneMeter => 3.2407790389471100000000000E-23;
+
+        protected override double ParsecsInOneMeter => 3.2407790389471100000000000E-17;
+
+        protected override double SolarRadiusesInOneMeter => 1.43779384911791000E-09;
+
+        protected override double ChainsInOneMeter => 0.0497096953789867;
+
+        [ Fact]
         public void AreaTimesLengthEqualsVolume()
         {
             Volume volume = Area.FromSquareMeters(10)*Length.FromMeters(3);
@@ -164,6 +186,31 @@ namespace UnitsNet.Tests.CustomCode
         {
             var length = new Length(1.0, UnitSystem.SI);
             Assert.Equal(LengthUnit.Meter, length.Unit);
+        }
+
+        [Fact]
+        public void Constructor_UnitSystemWithNoMatchingBaseUnits_ThrowsArgumentException()
+        {
+            // AmplitudeRatio is unitless. Can't have any matches :)
+            Assert.Throws<ArgumentException>(() => new AmplitudeRatio(1.0, UnitSystem.SI));
+        }
+
+        [Fact]
+        public void As_GivenSIUnitSystem_ReturnsSIValue()
+        {
+            var inches = new Length(2.0, LengthUnit.Inch);
+            Assert.Equal(0.0508, inches.As(UnitSystem.SI));
+        }
+
+        [Fact]
+        public void ToUnit_GivenSIUnitSystem_ReturnsSIQuantity()
+        {
+            var inches = new Length(2.0, LengthUnit.Inch);
+
+            var inSI = inches.ToUnit(UnitSystem.SI);
+
+            Assert.Equal(0.0508, inSI.Value);
+            Assert.Equal(LengthUnit.Meter, inSI.Unit);
         }
     }
 }

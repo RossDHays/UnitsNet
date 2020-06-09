@@ -20,6 +20,8 @@ namespace UnitsNet.Tests.CustomCode
 
         protected override double CubicKilometersInOneCubicMeter => 1E-9;
 
+        protected override double CubicHectometersInOneCubicMeter => 1E-6;
+
         protected override double CubicMetersInOneCubicMeter => 1;
 
         protected override double CubicMilesInOneCubicMeter => 2.399127585789277e-10;
@@ -30,11 +32,16 @@ namespace UnitsNet.Tests.CustomCode
 
         protected override double CubicYardsInOneCubicMeter => 1.30795062;
 
+        protected override double DecausGallonsInOneCubicMeter => 2.6417217e+1;
+
         protected override double DecilitersInOneCubicMeter => 1E4;
+        protected override double DeciusGallonsInOneCubicMeter => 2.6417217e+3;
         protected override double HectocubicFeetInOneCubicMeter => 3.531472e-1;
         protected override double HectocubicMetersInOneCubicMeter => 0.01;
 
         protected override double HectolitersInOneCubicMeter => 1E1;
+
+        protected override double HectousGallonsInOneCubicMeter => 2.6417217;
 
         protected override double ImperialGallonsInOneCubicMeter => 219.96924;
 
@@ -89,6 +96,10 @@ namespace UnitsNet.Tests.CustomCode
         protected override double AcreFeetInOneCubicMeter => 0.000810714;
 
         protected override double MegalitersInOneCubicMeter => 0.001;
+
+        protected override double ImperialPintsInOneCubicMeter => 1.7597539863927023e3;
+
+        protected override double BoardFeetInOneCubicMeter => 423.7760007;
 
         [Fact]
         public void VolumeDividedByAreaEqualsLength()
